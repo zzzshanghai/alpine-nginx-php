@@ -10,5 +10,4 @@ WORKDIR /var/www/html
 EXPOSE 80
 EXPOSE 443
 
-# 启动 Nginx 和 PHP-FPM
-CMD ["/usr/bin/php85-fpm", "-F"]
+ENTRYPOINT ["/entrypoint.sh"]
