@@ -10,5 +10,5 @@ WORKDIR /var/www/html
 EXPOSE 80
 EXPOSE 443
 
-#ENTRYPOINT ["/entrypoint.sh"]
-CMD  /usr/sbin/nginx -g "daemon off;"
+ENTRYPOINT ["/entrypoint.sh"]
+#CMD  /usr/sbin/nginx -g "daemon off;"
