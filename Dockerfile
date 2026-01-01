@@ -11,4 +11,4 @@ EXPOSE 80
 EXPOSE 443
 
 # 启动 Nginx 和 PHP-FPM
-CMD ["/usr/sbin/php85-fpm", "-F"]
+CMD ["/usr/bin/php85-fpm", "-F"]
