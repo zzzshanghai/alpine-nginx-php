@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rc-update add nginx
-rc-service nginx start
+nginx -g "daemon off;"
+php-fpm85 -d
 
 exec "$@"
