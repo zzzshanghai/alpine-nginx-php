@@ -7,6 +7,7 @@ RUN apk update \
 
 COPY entrypoint.sh /entrypoint.sh
 COPY softlevel /run/openrc/softlevel
+COPY nginx/http.d/default.conf /etc/nginx/http.d/default.conf
 COPY index.php /var/www/html/index.php
 
 WORKDIR /var/www/html
@@ -14,5 +15,5 @@ WORKDIR /var/www/html
 EXPOSE 80
 EXPOSE 443
 
-#CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
 ENTRYPOINT ["/entrypoint.sh"]
