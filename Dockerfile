@@ -18,8 +18,8 @@ COPY supervisord.conf /root/supervisord.conf
 COPY nginx/http.d/default.conf /etc/nginx/http.d/default.conf
 COPY php/php.ini /etc/${PHP_VERSION}/php.ini
 COPY index.php /var/www/html/index.php
-COPY tinyfilemanager.php /var/www/html/tinyfilemanager.php
-COPY translation.json /var/www/html/translation.json
+COPY tinyfilemanager/tinyfilemanager.php /var/www/html/tinyfilemanager.php
+COPY tinyfilemanager/translation.json /var/www/html/translation.json
 
 WORKDIR /var/www/html
 
