@@ -1,14 +1,16 @@
+# syntax=docker/dockerfile:1
+
 ARG ALPINE_VERSION=3.23.2
 
 FROM alpine:${ALPINE_VERSION}
 
 ARG PHP_VERSION=php85
 
-RUN apk update \
-  && apk --no-cache add bash curl icu-libs nginx openrc sudo supervisor tzdata \
-  ${PHP_VERSION} ${PHP_VERSION}-bcmath ${PHP_VERSION}-bz2 ${PHP_VERSION}-calendar ${PHP_VERSION}-cgi ${PHP_VERSION}-common ${PHP_VERSION}-ctype ${PHP_VERSION}-curl ${PHP_VERSION}-dom ${PHP_VERSION}-exif ${PHP_VERSION}-fileinfo ${PHP_VERSION}-fpm ${PHP_VERSION}-gd ${PHP_VERSION}-gettext ${PHP_VERSION}-gmp ${PHP_VERSION}-iconv ${PHP_VERSION}-intl ${PHP_VERSION}-mbstring ${PHP_VERSION}-openssl ${PHP_VERSION}-pear ${PHP_VERSION}-phar ${PHP_VERSION}-session ${PHP_VERSION}-simplexml ${PHP_VERSION}-soap ${PHP_VERSION}-sockets ${PHP_VERSION}-sodium ${PHP_VERSION}-sqlite3 ${PHP_VERSION}-tidy ${PHP_VERSION}-xml ${PHP_VERSION}-xmlreader ${PHP_VERSION}-xmlwriter ${PHP_VERSION}-zip \
-  && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-  && echo "Asia/Shanghai" > /etc/timezone
+RUN <<EOT
+ apk update
+ apk --no-cache add bash curl icu-libs nginx openrc sudo supervisor tzdata ${PHP_VERSION} ${PHP_VERSION}-bcmath ${PHP_VERSION}-bz2 ${PHP_VERSION}-calendar ${PHP_VERSION}-cgi ${PHP_VERSION}-common ${PHP_VERSION}-ctype ${PHP_VERSION}-curl ${PHP_VERSION}-dom ${PHP_VERSION}-exif ${PHP_VERSION}-fileinfo ${PHP_VERSION}-fpm ${PHP_VERSION}-gd ${PHP_VERSION}-gettext ${PHP_VERSION}-gmp ${PHP_VERSION}-iconv ${PHP_VERSION}-intl ${PHP_VERSION}-mbstring ${PHP_VERSION}-openssl ${PHP_VERSION}-pear ${PHP_VERSION}-phar ${PHP_VERSION}-session ${PHP_VERSION}-simplexml ${PHP_VERSION}-soap ${PHP_VERSION}-sockets ${PHP_VERSION}-sodium ${PHP_VERSION}-sqlite3 ${PHP_VERSION}-tidy ${PHP_VERSION}-xml ${PHP_VERSION}-xmlreader ${PHP_VERSION}-xmlwriter ${PHP_VERSION}-zip
+ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ echo "Asia/Shanghai" > /etc/timezone
 
 COPY softlevel /run/openrc/softlevel
 COPY supervisord.conf /root/supervisord.conf
