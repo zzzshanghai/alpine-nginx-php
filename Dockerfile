@@ -16,7 +16,6 @@ EOF
 COPY softlevel /run/openrc/softlevel
 COPY supervisord.conf /root/supervisord.conf
 COPY nginx/http.d/default.conf /etc/nginx/http.d/default.conf
-COPY php/php-fpm.conf /etc/${PHP_VERSION}/php-fpm.conf
 COPY php/php.ini /etc/${PHP_VERSION}/php.ini
 COPY index.php /var/www/html/index.php
 
