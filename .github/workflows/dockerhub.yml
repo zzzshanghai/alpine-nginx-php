@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Set date-based tag
-        run: echo "DATE_TAG=$(date +'%y.%-m.%-d')" >> $GITHUB_ENV
+        run: echo "DATE_TAG=$(date +'%y%m%d.%H%i%s')" >> $GITHUB_ENV
 
       - name: Docker meta
         id: meta
@@ -39,6 +39,8 @@ jobs:
       - name: Build and push multi-arch image
         uses: docker/build-push-action@v6
         with:
+          provenance: false
+          sbom: false
           context: .
           platforms: linux/amd64
           push: true
