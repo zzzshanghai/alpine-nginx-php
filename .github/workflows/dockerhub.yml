@@ -1,4 +1,4 @@
-name: To DockerHub
+name: To Dockerhub
 
 on:
   workflow_dispatch:
