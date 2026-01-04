@@ -7,10 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      packages: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -37,9 +33,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Set date-based tag
-        run: echo "DATE_TAG=$(date +'%y.%-m.%-d')" >> $GITHUB_ENV
 
       - name: Build and push multi-arch image
         uses: docker/build-push-action@v6
