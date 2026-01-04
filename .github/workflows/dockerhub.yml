@@ -21,7 +21,7 @@ jobs:
           images: |
             zzzshanghai/alpine-nginx-php
           tags: |
-            type=raw,value=$GITHUB_ENV
+            type=raw,value=${{ env.DATE_TAG }}
             type=raw,value=latest,enable={{is_default_branch}}
             
       - name: Set up QEMU
