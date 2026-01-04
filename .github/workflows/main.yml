@@ -34,8 +34,8 @@ jobs:
       - name: Build and push multi-arch image
         uses: docker/build-push-action@v6
         with:
-          provenance: false
-          sbom: false
+#          provenance: false
+#          sbom: false
           context: .
           platforms: linux/amd64
           push: true
