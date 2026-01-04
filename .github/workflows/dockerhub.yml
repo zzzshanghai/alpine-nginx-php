@@ -11,6 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Set date-based tag
+        run: echo "DATE_TAG=$(date +'%y.%-m.%-d')" >> $GITHUB_ENV
+
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
@@ -18,10 +21,9 @@ jobs:
           images: |
             zzzshanghai/alpine-nginx-php
           tags: |
+            type=raw,value=$GITHUB_ENV
             type=raw,value=latest,enable={{is_default_branch}}
-            type=ref,event=tag
-            type=ref,event=branch
-
+            
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
