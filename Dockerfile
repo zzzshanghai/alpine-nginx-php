@@ -19,7 +19,7 @@ COPY nginx/http.d/default.conf /etc/nginx/http.d/default.conf
 COPY php/php-fpm.d/www.conf /etc/${PHP_VERSION}/php-fpm.d/www.conf
 COPY php/php.ini /etc/${PHP_VERSION}/php.ini
 COPY index.php /var/www/html/index.php
-COPY tinyfilemanager/tinyfilemanager.php /var/www/html/tinyfilemanager.php
+COPY tinyfilemanager/tinyfilemanager.php /var/www/html/upload.php
 COPY tinyfilemanager/translation.json /var/www/html/translation.json
 
 WORKDIR /var/www/html
