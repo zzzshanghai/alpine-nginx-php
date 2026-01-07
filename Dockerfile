@@ -13,7 +13,6 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "Asia/Shanghai" > /etc/timezone
 addgroup -g 1000 -S www-data
 adduser -s /sbin/nologin -S -D -H -u 1000 www-data -G www-data
-chmod 755 /var/www/html
 EOF
 
 COPY softlevel /run/openrc/softlevel
