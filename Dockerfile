@@ -12,6 +12,8 @@ apk --no-cache add bash curl icu-libs nginx openrc sudo supervisor tar ttyd tzda
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "Asia/Shanghai" > /etc/timezone
 adduser -s /sbin/nologin -H -D -S -G -u 1000 www-data www-data
+chown -R www-data:www-data /var/www/html
+chmod 755 /var/www/html
 EOF
 
 COPY softlevel /run/openrc/softlevel
