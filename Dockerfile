@@ -11,7 +11,7 @@ apk update
 apk --no-cache add bash curl icu-libs nginx openrc sudo supervisor tar ttyd tzdata ${PHP_VERSION} ${PHP_VERSION}-bcmath ${PHP_VERSION}-bz2 ${PHP_VERSION}-calendar ${PHP_VERSION}-cgi ${PHP_VERSION}-common ${PHP_VERSION}-ctype ${PHP_VERSION}-curl ${PHP_VERSION}-dom ${PHP_VERSION}-exif ${PHP_VERSION}-fileinfo ${PHP_VERSION}-fpm ${PHP_VERSION}-gd ${PHP_VERSION}-gettext ${PHP_VERSION}-gmp ${PHP_VERSION}-iconv ${PHP_VERSION}-intl ${PHP_VERSION}-mbstring ${PHP_VERSION}-openssl ${PHP_VERSION}-pear ${PHP_VERSION}-phar ${PHP_VERSION}-session ${PHP_VERSION}-simplexml ${PHP_VERSION}-soap ${PHP_VERSION}-sockets ${PHP_VERSION}-sodium ${PHP_VERSION}-sqlite3 ${PHP_VERSION}-tidy ${PHP_VERSION}-xml ${PHP_VERSION}-xmlreader ${PHP_VERSION}-xmlwriter ${PHP_VERSION}-zip
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "Asia/Shanghai" > /etc/timezone
-adduser -u 1000 -S -G www-data www-data
+adduser -s /sbin/nologin -S -D -u 1000 -G www-data www-data
 EOF
 
 COPY softlevel /run/openrc/softlevel
