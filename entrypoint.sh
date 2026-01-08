@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 /usr/bin/supervisord -c /root/supervisord.conf
 chown -R www-data:www-data
