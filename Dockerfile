@@ -29,6 +29,5 @@ WORKDIR /var/www/html
 
 EXPOSE 80/tcp
 
-CMD ["/usr/bin/supervisord", "-c", "/root/supervisord.conf"]
-
 ENTRYPOINT ["/root/entrypoint.sh"]
+CMD ["/usr/bin/supervisord", "-c", "/root/supervisord.conf"]
