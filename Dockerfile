@@ -25,6 +25,8 @@ COPY index.php /var/www/html/index.php
 COPY tinyfilemanager/tinyfilemanager.php /var/www/html/upload.php
 COPY tinyfilemanager/translation.json /var/www/html/translation.json
 
+RUN chmod +x /entrypoint.sh
+
 WORKDIR /var/www/html
 
 EXPOSE 80/tcp
