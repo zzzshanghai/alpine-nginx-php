@@ -16,6 +16,7 @@ adduser -u 82 -D -S -G www-data www-data
 EOF
 
 COPY softlevel /run/openrc/softlevel
+COPY entrypoint.sh /root/entrypoint.sh
 COPY supervisord.conf /root/supervisord.conf
 COPY nginx/http.d/default.conf /etc/nginx/http.d/default.conf
 COPY php/php-fpm.d/www.conf /etc/${PHP_VERSION}/php-fpm.d/www.conf
