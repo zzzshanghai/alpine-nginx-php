@@ -25,8 +25,6 @@ COPY index.php /var/www/html/index.php
 COPY tinyfilemanager/tinyfilemanager.php /var/www/html/upload.php
 COPY tinyfilemanager/translation.json /var/www/html/translation.json
 
-RUN chown -R www-data:www-data && chmod 755 /var/www/html
-
 WORKDIR /var/www/html
 
 EXPOSE 80/tcp
