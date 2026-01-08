@@ -15,6 +15,7 @@ echo "Asia/Shanghai" > /etc/timezone
 adduser -u 82 -D -S -G www-data www-data
 EOF
 
+COPY entrypoint.sh /entrypoint.sh
 COPY softlevel /run/openrc/softlevel
 COPY supervisord.conf /root/supervisord.conf
 COPY nginx/http.d/default.conf /etc/nginx/http.d/default.conf
@@ -30,4 +31,4 @@ WORKDIR /var/www/html
 
 EXPOSE 80/tcp
 
-CMD ["/usr/bin/supervisord", "-c", "/root/supervisord.conf"]
+ENTRYPOINT ["/entrypoint.sh"]
