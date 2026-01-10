@@ -5,8 +5,6 @@ ARG ALPINE_VERSION=3.23.2
 FROM alpine:${ALPINE_VERSION}
 
 ARG PHP_VERSION=php85
-ENV TTYD_USERNAME=test
-ENV TTYD_PASSWORD=test
 
 COPY entrypoint.sh /entrypoint.sh
 COPY softlevel /run/openrc/softlevel
